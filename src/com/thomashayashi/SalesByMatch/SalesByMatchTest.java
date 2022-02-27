@@ -1,7 +1,8 @@
-package com.thomashayashi;
+package com.thomashayashi.SalesByMatch;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -26,7 +27,8 @@ class SalesByMatchTest {
 
     @Test
     void shouldReturnZeroWithOnlyOneSock() {
-        List<Integer> colorsEachSock = Arrays.asList(1);
+        List<Integer> colorsEachSock = new ArrayList<>();
+        colorsEachSock.add(1);
         int numberOfPairs = SockMerchant.calculatePairs(colorsEachSock);
         assertEquals(0, numberOfPairs);
     }

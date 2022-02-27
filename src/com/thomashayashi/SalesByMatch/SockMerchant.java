@@ -1,4 +1,4 @@
-package com.thomashayashi;
+package com.thomashayashi.SalesByMatch;
 
 import java.util.HashSet;
 import java.util.List;
@@ -6,18 +6,18 @@ import java.util.List;
 public class SockMerchant {
 
     public static int calculatePairs(List<Integer> colorsEachSock) {
-        int number_of_pairs = 0;
-
         HashSet<Integer> matching_socks = new HashSet<>();
+
+        int numberOfPairs = 0;
         for(Integer sockColor : colorsEachSock) {
             if(matching_socks.contains(sockColor)) {
-                number_of_pairs++;
+                numberOfPairs++;
                 matching_socks.remove(sockColor);
             } else {
                 matching_socks.add(sockColor);
             }
         }
 
-        return number_of_pairs;
+        return numberOfPairs;
     }
 }

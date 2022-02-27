@@ -22,5 +22,4 @@ public class LeftRotation {
 
         return new ArrayList<>(newPositions.values());
     }
-
 }

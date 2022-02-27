@@ -28,8 +28,6 @@ class LeftRotationTest {
         arr.add(1);
         List<Integer> rotatedArray = LeftRotation.rotLeft(arr, 1);
         assertEquals(arr, rotatedArray);
-        rotatedArray = LeftRotation.rotLeft(arr, 2);
-        assertEquals(arr, rotatedArray);
     }
 
     @Test
@@ -40,24 +38,30 @@ class LeftRotationTest {
     }
 
     @Test
-    void shouldRemainTheSameWithAFullCycleShift() {
+    void shouldRemainTheSameWithAFullCycleShiftWithAListWithEvenNumberOfElements() {
         List<Integer> originalArray = Arrays.asList(1,2);
         List<Integer> rotatedArray = LeftRotation.rotLeft(originalArray, originalArray.size());
-        assertEquals(originalArray, rotatedArray);
-
-        originalArray = Arrays.asList(1,2,3);
-        rotatedArray = LeftRotation.rotLeft(originalArray, originalArray.size());
         assertEquals(originalArray, rotatedArray);
     }
 
     @Test
-    void shouldRemainTheSameWithANumberOfFullCycleShift() {
+    void shouldRemainTheSameWithAFullCycleShiftWithAListWithOddNumberOfElements() {
+        List<Integer> originalArray = Arrays.asList(1,2,3);
+        List<Integer> rotatedArray = LeftRotation.rotLeft(originalArray, originalArray.size());
+        assertEquals(originalArray, rotatedArray);
+    }
+
+    @Test
+    void shouldRemainTheSameWithANumberOfFullCycleShiftWithAListWithEvenNumberOfElements() {
         List<Integer> originalArray = Arrays.asList(1,2);
         List<Integer> rotatedArray = LeftRotation.rotLeft(originalArray, originalArray.size() * 5);
         assertEquals(originalArray, rotatedArray);
+    }
 
-        originalArray = Arrays.asList(1,2,3);
-        rotatedArray = LeftRotation.rotLeft(originalArray, originalArray.size() * 7);
+    @Test
+    void shouldRemainTheSameWithANumberOfFullCycleShiftWithAListWithOddNumberOfElements() {
+        List<Integer> originalArray = Arrays.asList(1,2,3);
+        List<Integer> rotatedArray = LeftRotation.rotLeft(originalArray, originalArray.size() * 7);
         assertEquals(originalArray, rotatedArray);
     }
 
@@ -74,7 +78,6 @@ class LeftRotationTest {
         List<Integer> rotatedArray = LeftRotation.rotLeft(arr, arr.size() + 1);
         assertEquals(Arrays.asList(2,3,1), rotatedArray);
 
-        arr = Arrays.asList(1,2,3);
         rotatedArray = LeftRotation.rotLeft(arr, arr.size() + 2);
         assertEquals(Arrays.asList(3,1,2), rotatedArray);
     }

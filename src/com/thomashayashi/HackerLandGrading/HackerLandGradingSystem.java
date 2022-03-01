@@ -17,7 +17,7 @@ public class HackerLandGradingSystem {
     private static Integer calculateRoundedGrade(Integer grade) {
         int pointsToRound = 0;
 
-        if(isPassingGrade(grade) && !isAlreadyRounded(grade))
+        if(isPassingGrade(grade))
             pointsToRound = getPointsNextRoundingWithinLimit(grade);
 
         return grade + pointsToRound;
@@ -25,10 +25,6 @@ public class HackerLandGradingSystem {
 
     private static boolean isPassingGrade(Integer grade){
         return grade >= PASSING_GRADE;
-    }
-
-    private static boolean isAlreadyRounded(Integer grade){
-        return grade % ROUND_FACTOR == 0;
     }
 
     private static int getPointsNextRoundingWithinLimit(Integer grade) {

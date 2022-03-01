@@ -23,6 +23,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 * grade = 29 do not round (result is less than 40)
 * grade = 57 do not round (60 - 57 is 3 or higher)
 *
+* Full description: https://www.hackerrank.com/challenges/grading/problem
  */
 public class HackerLandGradingSystemTest {
     @Test

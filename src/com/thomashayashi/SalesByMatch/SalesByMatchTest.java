@@ -21,6 +21,8 @@ import static org.junit.jupiter.api.Assertions.*;
 * Constraints:
 * 1 <= n <= 100
 * 1 <= ar[i] <= 100 where 0 <= i < n
+*
+* Full description: https://www.hackerrank.com/challenges/sock-merchant/problem
 */
 class SalesByMatchTest {
 

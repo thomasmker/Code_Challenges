@@ -16,6 +16,8 @@ import static org.junit.jupiter.api.Assertions.*;
 * e f g
 *
 * Print the largest (maximum) hourglass sum found in arr
+*
+* Full description: https://www.hackerrank.com/challenges/2d-array/problem
 * */
 public class HourGlassTest {
 

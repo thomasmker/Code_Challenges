@@ -10,8 +10,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /*
-* Easier to check the problem
-* https://www.hackerrank.com/challenges/apple-and-orange/problem
+* Full description: https://www.hackerrank.com/challenges/apple-and-orange/problem
 */
 public class AppleOrangeFallTest {
     private AppleOrangeFall appleOrangeFall;

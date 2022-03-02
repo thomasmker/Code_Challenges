@@ -6,6 +6,10 @@ public class KangarooShow {
         String response = "NO";
         boolean canCatchUp = (v2 < v1);
         if(canCatchUp) {
+            // x1 + (hops * v1) = x2 + (hops * v2)
+            // x1 - x2 = (hops * v2) - (hops * v1)
+            // x1 - x2 = hops * (v2 -v1)
+            // (x1 - x2) / (v2 -v1) = hops
             boolean willIntersectOnLand = (x1 - x2) % (v2 - v1) == 0;
             if(willIntersectOnLand) {
                 response = "YES";
@@ -13,23 +17,16 @@ public class KangarooShow {
         }
 
         return response;
-//        int positionKangaroo1 = x1;
-//        int positionKangaroo2 = x2;
-//
-//        int whoIsFirst = x1 > x2 ? 1 : 2;
+//        int p1 = x1;
+//        int p2 = x2;
 //        while(true) {
-//            positionKangaroo1 += v1;
-//            positionKangaroo2 += v2;
-//
-//            if(positionKangaroo1 == positionKangaroo2)
+//            if(p1 == p2)
 //                return "YES";
+//            if(p1 > p2)
+//                return "NO";
 //
-//            if(whoIsFirst == 1 && positionKangaroo2 > positionKangaroo1) {
-//                return "NO";
-//            }
-//            if(whoIsFirst == 2 && positionKangaroo1 > positionKangaroo2) {
-//                return "NO";
-//            }
+//            p1 += v1;
+//            p2 += v2;
 //        }
     }
 }

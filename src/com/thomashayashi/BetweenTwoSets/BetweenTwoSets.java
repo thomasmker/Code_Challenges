@@ -5,10 +5,11 @@ import java.util.List;
 
 public class BetweenTwoSets {
     public static int getTotalX(List<Integer> numberFactors, List<Integer> factoredByNumber){
-        Integer minElement = getMinValue(factoredByNumber);
+        Integer minFactor = getMinValue(numberFactors);
+        Integer minFactored = getMinValue(factoredByNumber);
 
         int possibleNumbers = 0;
-        for(int num = 1; num <= minElement; num++)
+        for(int num = minFactor; num <= minFactored; num++)
             possibleNumbers+= isFactoredAndAFactor(numberFactors, factoredByNumber, num) ? 1 : 0;
 
         return possibleNumbers;

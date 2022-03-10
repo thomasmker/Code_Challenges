@@ -3,7 +3,7 @@ package com.thomashayashi.LeftRotation;
 import java.util.*;
 
 
-public class LeftRotation {
+class LeftRotation {
 
     public static List<Integer> rotLeft(List<Integer> a, int d) {
         int arraySize = a.size();

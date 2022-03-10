@@ -3,7 +3,7 @@ package com.thomashayashi.HackerLandGrading;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HackerLandGradingSystem {
+class HackerLandGradingSystem {
     private static final int PASSING_GRADE = 38;
     private static final int ROUND_FACTOR = 5;
     private static final int ROUND_POINT_LIMIT = 3;

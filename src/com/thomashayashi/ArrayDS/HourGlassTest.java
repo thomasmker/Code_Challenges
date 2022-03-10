@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.*;
 *
 * Full description: https://www.hackerrank.com/challenges/2d-array/problem
 * */
-public class HourGlassTest {
+class HourGlassTest {
 
     @Test
     void shouldReturnZeroWithAllZeros() {

@@ -3,7 +3,7 @@ package com.thomashayashi.BetweenTwoSets;
 import java.util.Collections;
 import java.util.List;
 
-public class BetweenTwoSets {
+class BetweenTwoSets {
     public static int getTotalX(List<Integer> numberFactors, List<Integer> factoredByNumber){
         Integer minFactor = getMinValue(numberFactors);
         Integer minFactored = getMinValue(factoredByNumber);

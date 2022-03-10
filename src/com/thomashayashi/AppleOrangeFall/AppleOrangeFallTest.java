@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 /*
 * Full description: https://www.hackerrank.com/challenges/apple-and-orange/problem
 */
-public class AppleOrangeFallTest {
+class AppleOrangeFallTest {
     private AppleOrangeFall appleOrangeFall;
 
     @BeforeEach

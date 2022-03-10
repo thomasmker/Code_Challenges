@@ -3,7 +3,7 @@ package com.thomashayashi.SalesByMatch;
 import java.util.HashSet;
 import java.util.List;
 
-public class SockMerchant {
+class SockMerchant {
 
     public static int calculatePairs(List<Integer> colorsEachSock) {
         HashSet<Integer> matching_socks = new HashSet<>();

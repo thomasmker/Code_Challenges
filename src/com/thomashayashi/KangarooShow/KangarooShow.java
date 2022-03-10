@@ -1,6 +1,6 @@
 package com.thomashayashi.KangarooShow;
 
-public class KangarooShow {
+class KangarooShow {
 
     public static String willTheyMeet(int x1, int v1, int x2, int v2) {
         String response = "NO";

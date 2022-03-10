@@ -20,7 +20,7 @@ import static org.junit.jupiter.api.Assertions.*;
 *
 * Full description: https://www.hackerrank.com/challenges/new-year-chaos/problem
 */
-public class RollerCoasterQueueTest {
+class RollerCoasterQueueTest {
 
     private RollerCoasterQueue rollerCoasterQueue;
 

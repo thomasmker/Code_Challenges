@@ -26,7 +26,6 @@ import static org.junit.jupiter.api.Assertions.*;
 */
 class SalesByMatchTest {
 
-
     @Test
     void shouldReturnZeroWithOnlyOneSock() {
         List<Integer> colorsEachSock = new ArrayList<>();

@@ -7,7 +7,7 @@ import java.util.Arrays;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class PermutationCheckTest {
+class PermutationCheckTest {
     @Test
     void givenTwoStringCheckIfTheyArePermutations() {
         assertTrue(isPermutation("a","a"));
@@ -29,11 +29,8 @@ public class PermutationCheckTest {
         if(word1.length() != word2.length())
             return false;
 
-        char[] letters1 = word1.toCharArray();
-        char[] letters2 = word2.toCharArray();
-
-        Arrays.sort(letters1);
-        Arrays.sort(letters2);
+        char[] letters1 = sortWord(word1);
+        char[] letters2 = sortWord(word2);
 
         for(int i = 0; i <= letters1.length - 1; i++) {
             if (letters1[i] != letters2[i])
@@ -41,5 +38,11 @@ public class PermutationCheckTest {
         }
 
         return true;
+    }
+
+    private char[] sortWord(String word) {
+        char[] letters = word.toCharArray();
+        Arrays.sort(letters);
+        return letters;
     }
 }

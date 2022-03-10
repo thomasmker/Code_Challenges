@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class HourGlass {
+class HourGlass {
 
     public static int hourglassSum(List<List<Integer>> arr) {
         List<List<Integer>> allHourGlasses = getHourGlassesValues(arr);

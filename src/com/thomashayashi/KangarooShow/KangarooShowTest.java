@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 *
 * Full description: https://www.hackerrank.com/challenges/kangaroo/problem
  */
-public class KangarooShowTest {
+class KangarooShowTest {
 
     @Test
     void kangarooWillNotMeetIfFirstIsStandingAndSecondRunning() {

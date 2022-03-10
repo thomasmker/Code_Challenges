@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 /*
 * Full description: https://www.hackerrank.com/challenges/between-two-sets/problem
 */
-public class BetweenTwoSetsTest {
+class BetweenTwoSetsTest {
     @Test
     void whenThereIsOnlyFactorAndTheFactorIsTheSame_ThenOnlyOneNumberIsBetweenSets(){
         List<Integer> factorsOfTheNumbers = Collections.singletonList(1);

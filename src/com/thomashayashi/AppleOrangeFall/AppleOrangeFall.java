@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class AppleOrangeFall {
+class AppleOrangeFall {
     /*
      * The function accepts following parameters:
      *  1. INTEGER s - starting point of Sam's house location.

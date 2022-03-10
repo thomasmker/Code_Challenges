@@ -25,7 +25,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 *
 * Full description: https://www.hackerrank.com/challenges/grading/problem
  */
-public class HackerLandGradingSystemTest {
+class HackerLandGradingSystemTest {
     @Test
     void shouldReturnAnEmptyList() {
         List<Integer> grades = new ArrayList<>();

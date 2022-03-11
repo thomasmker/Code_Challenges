@@ -51,13 +51,12 @@ class OneOperationAwayTest {
         int indexSmaller = 0, indexBigger = 0;
         while(indexSmaller < smaller.length())
         {
-            if(smaller.charAt(indexSmaller) == biggerWord.charAt(indexBigger)) {
+            if(smaller.charAt(indexSmaller) == biggerWord.charAt(indexBigger))
                 indexSmaller++;
-                indexBigger++;
-            } else {
+            else
                 missingLetters++;
-                indexBigger++;
-            }
+
+            indexBigger++;
 
             if(missingLetters == 2)
                 return false;

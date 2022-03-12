@@ -30,6 +30,7 @@ class OneOperationAwayTest {
         assertFalse(isOneOperationAway("ab", "ba")); // 2 replaces
         assertFalse(isOneOperationAway("a", "cb")); // 1 replaces + 1 insertion
         assertFalse(isOneOperationAway("pale", "bae")); // 1 replaces + 1 remove
+        assertFalse(isOneOperationAway("paleee", "bae")); // 1 replaces + 2 remove
     }
 
     private boolean isOneOperationAway(String word1, String word2) {
@@ -44,14 +45,14 @@ class OneOperationAwayTest {
 
     private boolean isOneEditAway(String word1, String word2) {
         String biggerWord = word1.length() > word2.length() ? word1 : word2;
-        String smaller = biggerWord.equals(word1) ? word2 : word1;
+        String smallerWord = biggerWord.equals(word1) ? word2 : word1;
 
         int missingLetters = 0;
 
         int indexSmaller = 0, indexBigger = 0;
-        while(indexSmaller < smaller.length())
+        while(indexSmaller < smallerWord.length() && indexBigger < biggerWord.length())
         {
-            if(smaller.charAt(indexSmaller) == biggerWord.charAt(indexBigger))
+            if(smallerWord.charAt(indexSmaller) == biggerWord.charAt(indexBigger))
                 indexSmaller++;
             else
                 missingLetters++;

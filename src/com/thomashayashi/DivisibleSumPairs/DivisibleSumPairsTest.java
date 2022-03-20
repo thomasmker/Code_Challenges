@@ -8,6 +8,9 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/*
+ * Full description: https://www.hackerrank.com/challenges/divisible-sum-pairs/problem
+ */
 class DivisibleSumPairsTest {
     @Test
     void checkNumOfDivisibleSumPairs() {

@@ -22,7 +22,7 @@ class BreakingRecordsTest {
         assertEquals(Arrays.asList(4,0),breakingRecords(Arrays.asList(3,4,21,36,10,28,35,5,24,42)));
     }
 
-    public List<Integer> breakingRecords(List<Integer> scores) {
+    private List<Integer> breakingRecords(List<Integer> scores) {
         int numBestRecordBreak = 0;
         int numWorstRecordBreak = 0;
 

@@ -15,40 +15,46 @@ class OperationXORTest {
     }
 
     public int solution(int M, int N) {
-        int firstXOR = getXOROperation(M);
-        int lastXOR = getXOROperation(N - 1);
-        return getBitwiseMultiplication(ConvertToBinary(firstXOR), ConvertToBinary(lastXOR));
+        String firstXOR = getOperationXOR(M);
+        String lastXOR = getOperationXOR(N - 1);
+        String result = getBitwiseMultiplication(firstXOR, lastXOR);
+        return convertToDecimal(result);
     }
 
-    private int getXOROperation(int value) {
-        String current = ConvertToBinary(value);
-        String next = ConvertToBinary(value + 1);
+    private String getOperationXOR(int value) {
+        String current = convertToBinary(value);
+        String next = convertToBinary(value + 1);
         return getBitwiseMultiplication(current, next);
     }
 
-    private String ConvertToBinary(int value) {
-        return Integer.toBinaryString(value);
+    private String getBitwiseMultiplication(String current, String next) {
+        current = equalizeWithLeadingZeros(current, next.length());
+        next = equalizeWithLeadingZeros(next, current.length());
+
+        return calculateBitwiseMultiplication(current, next);
     }
 
-    private int getBitwiseMultiplication(String current, String next) {
-        current = AddLeadingZeros(current, next);
-        next = AddLeadingZeros(next, current);
-
+    private String calculateBitwiseMultiplication(String current, String next) {
         StringBuilder sbResul = new StringBuilder();
         for(int b = 0; b < current.length(); b++)
             sbResul.append((current.charAt(b) == next.charAt(b)) ? "0" : "1");
 
-        return Integer.parseInt(sbResul.toString(),2);
+        return sbResul.toString();
     }
 
-    private String AddLeadingZeros(String current, String next) {
-        if(current.length() == next.length())
-            return current;
+    private String equalizeWithLeadingZeros(String value, int size) {
+        if(value.length() == size)
+            return value;
 
-        StringBuilder currentBuilder = new StringBuilder(current);
-        while(currentBuilder.length() < next.length())
+        StringBuilder currentBuilder = new StringBuilder(value);
+        while(currentBuilder.length() < size)
             currentBuilder.insert(0, "0");
 
         return currentBuilder.toString();
     }
+
+    private String convertToBinary(int value) {
+        return Integer.toBinaryString(value);
+    }
+    private int convertToDecimal(String result) { return Integer.parseInt(result, 2); }
 }

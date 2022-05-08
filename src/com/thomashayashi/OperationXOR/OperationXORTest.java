@@ -43,7 +43,7 @@ class OperationXORTest {
     }
 
     private String equalizeWithLeadingZeros(String value, int size) {
-        if(value.length() == size)
+        if(value.length() >= size)
             return value;
 
         StringBuilder currentBuilder = new StringBuilder(value);

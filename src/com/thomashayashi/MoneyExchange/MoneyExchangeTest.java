@@ -2,8 +2,7 @@ package com.thomashayashi.MoneyExchange;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -14,48 +13,117 @@ class MoneyExchangeTest {
         this.exchanges.put("USD=BRL", 5d);
         this.exchanges.put("BRL=YEN", 25d);
         this.exchanges.put("EUR=YEN", 140d);
+
+        this.exchanges.put("A=B", 2d);
+        this.exchanges.put("B=C", 1d);
+        this.exchanges.put("B=D", 3d);
+        this.exchanges.put("D=C", 1d);
     }
 
     @Test
-    void checkMoneyConversion(){
-        // Same currency
+    void givenAnUnknownExchangeOrNonexistentExchangeShouldReturnZero() {
+        assertEquals(0d, convert(1d,"USD","UNKNOWN"));
+        assertEquals(0d, convert(1d,"USD","D"));
+    }
+
+    @Test
+    void givenSameCurrencyShouldReturnSameValue() {
         assertEquals(2d, convert(2d,"USD","USD"));
-        // One conversion
+    }
+
+    @Test
+    void givenThatDirectCurrencyExchangeExistsShouldUseThisExchangeRate() {
         assertEquals(5d, convert(1d,"USD","BRL"));
-        // Reverse conversion
+    }
+
+    @Test
+    void givenThatReverseCurrencyExchangeExistsButNoDirectConversionShouldReturnTheReverseExchangeRate(){
         assertEquals(0.2d, convert(1d,"BRL","USD"));
-        // One direct chain (USD -> BRL -> YEN)
+    }
+
+    @Test
+    void givenThatChainOfExchangesToTheDestinyCurrencyExistShouldReturnWithTheAccumulatedExchangeRates() {
         assertEquals(125d, convert(1d,"USD","YEN"));
-        // One chain + one reverse (USD -> BRL -> YEN -> 1/EUR)
+    }
+
+    @Test
+    void givenThatChainOfExchangesToTheDestinyCurrencyExistWithAReverseExchangeShouldReturnWithTheAccumulatedExchangeRates() {
         assertEquals(0.89d, convert(1d,"USD","EUR"), 0.01);
     }
 
-    private Double convert(Double amount, String fromCurrency, String toCurrency) {
-        return amount * conversion(fromCurrency, toCurrency);
+    @Test
+    void givenThatThereAreMoreThanOneWayToConvertShouldReturnTheBiggestValue() {
+        // A -> B -> C = 2
+        // A -> B -> D -> C = 6
+        assertEquals(6d, convert(1d,"A","C"));
     }
 
-    private Double conversion(String fromCurrency, String toCurrency) {
+    public Double convert(Double amount, String fromCurrency, String toCurrency) {
+        return amount * getConversionRate(fromCurrency, toCurrency);
+    }
+
+    private Double getConversionRate(String fromCurrency, String toCurrency) {
         if(fromCurrency.equals(toCurrency))
             return 1d;
 
-        String keyConversion = fromCurrency + "=" + toCurrency;
-        if(this.exchanges.containsKey(keyConversion))
-            return this.exchanges.get(keyConversion);
+        return calculateConversionRates(fromCurrency, toCurrency);
+    }
 
-        String reverseConversion = toCurrency + "=" + fromCurrency;
-        if(this.exchanges.containsKey(reverseConversion))
-            return 1 / this.exchanges.get(reverseConversion);
+    private double calculateConversionRates(String fromCurrency, String toCurrency) {
+        List<Double> exchangeRates = new ArrayList<>();
+        exchangeRates.add(getDirectExchange(getExchangeKey(fromCurrency, toCurrency)));
+        exchangeRates.add(getReverseExchange(getExchangeKey(toCurrency, fromCurrency)));
+        exchangeRates.add(getFromChainExchange(fromCurrency, toCurrency));
+        return getBestExchangeRate(exchangeRates);
+    }
 
-        for(String conversionPair : this.exchanges.keySet()) {
-            Double exchangeRate = this.exchanges.get(conversionPair);
-            String[] newFrom = conversionPair.split("=",2);
+    private Double getDirectExchange(String keyExchange) {
+        return getExchangeRate(keyExchange);
+    }
 
-            if(conversionPair.startsWith(fromCurrency))
-                return exchangeRate * conversion(newFrom[1], toCurrency);
-            else if (conversionPair.endsWith(fromCurrency))
-                return exchangeRate * conversion(newFrom[0], toCurrency);
+    private Double getReverseExchange(String keyExchange) {
+        Double exchangeRate = getDirectExchange(keyExchange);
+        return exchangeRate != null ? 1/exchangeRate : null;
+    }
+
+    private Double getFromChainExchange(String fromCurrency, String toCurrency) {
+        Double bestExchange = null;
+        for(String pairExchange : getAllExchangeRates()) {
+            if(pairExchange.startsWith(fromCurrency + "="))
+                bestExchange = getAccumulatedChainExchange(toCurrency, pairExchange);
+        }
+        return bestExchange;
+    }
+
+    private Double getAccumulatedChainExchange(String toCurrency, String conversionPair) {
+        Double exchangeRate = getExchangeRate(conversionPair);
+        String newFromCurrency = conversionPair.split("=", 2)[1];
+        return exchangeRate * getConversionRate(newFromCurrency, toCurrency);
+    }
+
+    private double getBestExchangeRate(List<Double> exchangeRates) {
+        Double bestExchangeRate = null;
+        for(Double exchangeRate : exchangeRates) {
+            if(exchangeRate != null)
+                bestExchangeRate = getBetterExchange(bestExchangeRate, exchangeRate);
         }
 
-        return 0d;
+        return bestExchangeRate == null ? 0d : bestExchangeRate;
+    }
+
+    private String getExchangeKey(String fromCurrency, String toCurrency) {
+        return fromCurrency + "=" + toCurrency;
+    }
+
+    private Set<String> getAllExchangeRates() {
+        return this.exchanges.keySet();
+    }
+
+    private Double getExchangeRate(String keyExchange) {
+        return this.exchanges.getOrDefault(keyExchange, null);
+    }
+
+    private Double getBetterExchange(Double currentValue, Double newValue) {
+        return currentValue == null || currentValue < newValue ? newValue : currentValue;
     }
 }

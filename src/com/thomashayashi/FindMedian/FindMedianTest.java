@@ -8,6 +8,9 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/*
+ * Full description: https://www.hackerrank.com/challenges/find-the-median/problem
+ */
 class FindMedianTest {
     @Test
     void checkMedian(){

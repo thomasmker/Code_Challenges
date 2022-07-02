@@ -14,6 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class LongestRepeatingCharacterTest {
     @Test
     void checkLongest() {
+        assertEquals(0, characterReplacement("",0));
         assertEquals(4, characterReplacement("ABAB",2));
         assertEquals(4, characterReplacement("AABABBA",1));
     }

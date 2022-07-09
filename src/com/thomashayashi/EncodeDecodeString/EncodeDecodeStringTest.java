@@ -12,6 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * Full description: https://www.lintcode.com/problem/659/
  */
 class EncodeDecodeStringTest {
+    private static final char SEPARATOR = '#';
     @Test
     void checkEncode() {
         assertEquals("1#a2#bc", encode(Arrays.asList("a","bc")));
@@ -21,7 +22,7 @@ class EncodeDecodeStringTest {
     private String encode(List<String> words) {
         StringBuilder encodedString = new StringBuilder();
         for(String word: words)
-            encodedString.append(word.length()).append("#").append(word);
+            encodedString.append(word.length()).append(SEPARATOR).append(word);
 
         return encodedString.toString();
     }
@@ -36,7 +37,7 @@ class EncodeDecodeStringTest {
         List<String> decodedStrings = new ArrayList<>();
         for(int i = 0; i < encodedWords.length(); i++) {
             StringBuilder length = new StringBuilder();
-            while(encodedWords.charAt(i) != '#'){
+            while(encodedWords.charAt(i) != SEPARATOR){
                 length.append(encodedWords.charAt(i));
                 i++;
             }

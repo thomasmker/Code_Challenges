@@ -13,10 +13,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  */
 class EncodeDecodeStringTest {
     private static final char SEPARATOR = '#';
+
     @Test
-    void checkEncode() {
-        assertEquals("1#a2#bc", encode(Arrays.asList("a","bc")));
-        assertEquals("4#lint4#code4#love3#you", encode(Arrays.asList("lint","code","love","you")));
+    void checkEncodeDecode() {
+        List<String> words = Arrays.asList("lint","code","love","you");
+        String expectedEncoded = "4#lint4#code4#love3#you";
+
+        assertEquals(expectedEncoded, encode(words));
+        assertEquals(words, decode(expectedEncoded));
     }
 
     private String encode(List<String> words) {
@@ -27,11 +31,7 @@ class EncodeDecodeStringTest {
         return encodedString.toString();
     }
 
-    @Test
-    void checkDecode() {
-        assertEquals(Arrays.asList("a","bc"), decode("1#a2#bc"));
-        assertEquals(Arrays.asList("lint","code","love","you"), decode("4#lint4#code4#love3#you"));
-    }
+
 
     private List<String> decode(String encodedWords) {
         List<String> decodedStrings = new ArrayList<>();

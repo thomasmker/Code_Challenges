@@ -17,10 +17,7 @@ class EncodeDecodeStringTest {
     @Test
     void checkEncodeDecode() {
         List<String> words = Arrays.asList("lint","code","love","you");
-        String expectedEncoded = "4#lint4#code4#love3#you";
-
-        assertEquals(expectedEncoded, encode(words));
-        assertEquals(words, decode(expectedEncoded));
+        assertEquals(words, decode(encode(words)));
     }
 
     private String encode(List<String> words) {

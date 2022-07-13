@@ -40,9 +40,21 @@ class MinStackTest {
         assertEquals(1,minStack.size());
     }
 
-    public void push(int val) {
+    @Test
+    void checkEmptyStackAfterOnePushAndOnePop(){
+        push(1);
+        pop();
+        checkEmptyStack();
+    }
+
+    private void push(int val) {
         stack.push(val);
         val = Math.min(val, minStack.isEmpty() ? val : minStack.peek());
         minStack.push(val);
+    }
+
+    private void pop() {
+        stack.pop();
+        minStack.pop();
     }
 }

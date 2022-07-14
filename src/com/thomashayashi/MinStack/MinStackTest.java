@@ -47,6 +47,19 @@ class MinStackTest {
         checkEmptyStack();
     }
 
+    @Test
+    void checkLastEntryAfterOnePush(){
+        push(2);
+        assertEquals(2,top());
+    }
+
+    @Test
+    void checkLastEntryAfterTwoPush(){
+        push(2);
+        push(5);
+        assertEquals(5,top());
+    }
+
     private void push(int val) {
         stack.push(val);
         val = Math.min(val, minStack.isEmpty() ? val : minStack.peek());
@@ -56,5 +69,9 @@ class MinStackTest {
     private void pop() {
         stack.pop();
         minStack.pop();
+    }
+
+    public int top() {
+        return stack.peek();
     }
 }

@@ -61,6 +61,13 @@ class MinStackTest {
     }
 
     @Test
+    void checkLastEntryAfterTwoDescendingPush(){
+        push(5);
+        push(2);
+        assertEquals(2,top());
+    }
+
+    @Test
     void checkMinValueWithAscendingPush(){
         push(2);
         push(5);

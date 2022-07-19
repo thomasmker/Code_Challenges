@@ -15,10 +15,16 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class ValidParenthesesTest {
 
     @Test
-    void checkValidity(){
+    void checkValid(){
         assertTrue(isValid("()"));
         assertTrue(isValid("()[]{}"));
+        assertTrue(isValid("([]{})"));
+    }
+
+    @Test
+    void checkInvalid(){
         assertFalse(isValid("(]"));
+        assertFalse(isValid("[()]}"));
     }
 
     private boolean isValid(String s) {

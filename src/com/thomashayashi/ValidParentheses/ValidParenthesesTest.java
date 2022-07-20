@@ -16,6 +16,7 @@ class ValidParenthesesTest {
 
     @Test
     void checkValid(){
+        assertTrue(isValid(""));
         assertTrue(isValid("()"));
         assertTrue(isValid("()[]{}"));
         assertTrue(isValid("([]{})"));
@@ -24,6 +25,7 @@ class ValidParenthesesTest {
     @Test
     void checkInvalid(){
         assertFalse(isValid("(]"));
+        assertFalse(isValid("([{"));
         assertFalse(isValid("[()]}"));
     }
 

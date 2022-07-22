@@ -16,6 +16,7 @@ class PolishNotationTest {
     @Test
     void checkTokens(){
         assertEquals(3, evalRPN(Arrays.asList("2","1","+")));
+        assertEquals(12, evalRPN(Arrays.asList("3","4","*")));
         assertEquals(9, evalRPN(Arrays.asList("2","1","+","3","*")));
     }
 

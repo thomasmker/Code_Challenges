@@ -20,7 +20,9 @@ class PolishNotationTest {
         assertEquals(7, evalRPN(Arrays.asList("3","4","+")));
         assertEquals(1, evalRPN(Arrays.asList("6","5","-")));
         assertEquals(2, evalRPN(Arrays.asList("14","7","/")));
+
         assertEquals(9, evalRPN(Arrays.asList("2","1","+","3","*")));
+        assertEquals(6, evalRPN(Arrays.asList("4","13","5","/","+")));
     }
 
     int evalRPN(List<String> tokens) {

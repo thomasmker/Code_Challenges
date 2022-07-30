@@ -1,12 +1,7 @@
 package com.thomashayashi.GenerateParentheses;
-
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -19,6 +14,7 @@ class GenerateParenthesesTest {
 
     @Test
     void checkParenthesisGeneration(){
+        assertEquals(List.of(""), generateParenthesis(0));
         assertEquals(List.of("()"), generateParenthesis(1));
         assertEquals(Arrays.asList("(())","()()"), generateParenthesis(2));
         assertEquals(Arrays.asList("((()))","(()())","(())()","()(())","()()()"), generateParenthesis(3));

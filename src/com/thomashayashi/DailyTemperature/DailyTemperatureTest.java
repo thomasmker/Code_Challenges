@@ -18,14 +18,14 @@ class DailyTemperatureTest {
     }
 
     private List<Integer> dailyTemperatures(List<Integer> temperatures) {
-        Stack<Integer> warmerDayIndex = new Stack<>();
+        Stack<Integer> warmerDay = new Stack<>();
         List<Integer> results = new ArrayList<>(Collections.nCopies(temperatures.size(), 0));
-        for(int i = 0; i < temperatures.size(); i++) {
-            while(!warmerDayIndex.isEmpty() && temperatures.get(warmerDayIndex.peek()) < temperatures.get(i)) {
-                int prevDay = warmerDayIndex.pop();
-                results.set(prevDay, i - prevDay);
+        for(int day = 0; day < temperatures.size(); day++) {
+            while(!warmerDay.isEmpty() && temperatures.get(warmerDay.peek()) < temperatures.get(day)) {
+                int prevDay = warmerDay.pop();
+                results.set(prevDay, day - prevDay);
             }
-            warmerDayIndex.push(i);
+            warmerDay.push(day);
         }
 
         return results;

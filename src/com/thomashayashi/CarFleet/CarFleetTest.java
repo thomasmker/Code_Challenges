@@ -17,6 +17,7 @@ class CarFleetTest {
     @Test
     void checkTemperature(){
         assertEquals(1, carFleet(0, List.of(1), Collections.emptyList()));
+        assertEquals(1, carFleet(10, List.of(3), List.of(3)));
         assertEquals(3, carFleet(12, Arrays.asList(10,8,0,5,3), Arrays.asList(2,4,1,1,3)));
     }
 

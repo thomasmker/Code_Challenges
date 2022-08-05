@@ -19,6 +19,7 @@ class CarFleetTest {
         assertEquals(1, carFleet(0, List.of(1), Collections.emptyList()));
         assertEquals(1, carFleet(10, List.of(3), List.of(3)));
         assertEquals(3, carFleet(12, Arrays.asList(10,8,0,5,3), Arrays.asList(2,4,1,1,3)));
+        assertEquals(1, carFleet(100, Arrays.asList(0,2,4), Arrays.asList(4,2,1)));
     }
 
     private int carFleet(int target, List<Integer> position, List<Integer> speed) {

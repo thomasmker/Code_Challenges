@@ -2,10 +2,7 @@ package com.thomashayashi.CarFleet;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -25,16 +22,16 @@ class CarFleetTest {
     private int carFleet(int target, List<Integer> position, List<Integer> speed) {
         if (position.size() == 1) return 1;
 
-        int[][] combine = new int[position.size()][2];
-        for (int i = 0; i < position.size(); i++) {
-            combine[i][0] = position.get(i);
-            combine[i][1] = speed.get(i);
-        }
-        Arrays.sort(combine, java.util.Comparator.comparingInt(o -> o[0]));
+        List<Car> fleet = new ArrayList<>();
+        for (int i = 0; i < position.size(); i++)
+            fleet.add(new Car(position.get(i), speed.get(i)));
+
+        fleet.sort(Comparator.comparingInt(Car::position));
 
         Stack<Double> stack = new Stack<>();
-        for (int i = combine.length - 1; i >= 0; i--) {
-            double currentTime = (double) (target - combine[i][0]) / combine[i][1];
+        for (int i = fleet.size() - 1; i >= 0; i--) {
+            Car car = fleet.get(i);
+            double currentTime = (double) (target - car.position()) / car.speed();
 
             if (!stack.isEmpty() && currentTime <= stack.peek())
                 continue;
@@ -43,4 +40,8 @@ class CarFleetTest {
         }
         return stack.size();
     }
+}
+
+record Car(int position, int speed) {
+
 }

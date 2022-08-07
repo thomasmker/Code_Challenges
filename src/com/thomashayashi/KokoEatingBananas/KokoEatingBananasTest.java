@@ -15,6 +15,7 @@ class KokoEatingBananasTest {
     void checkIndex(){
         assertEquals(4, minEatingSpeed(Arrays.asList(3,6,7,11), 8));
         assertEquals(30, minEatingSpeed(Arrays.asList(30,11,23,4,20), 5));
+        assertEquals(23, minEatingSpeed(Arrays.asList(30,11,23,4,20), 6));
     }
 
     private int minEatingSpeed(List<Integer> piles, int h) {

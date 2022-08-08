@@ -19,9 +19,8 @@ class KokoEatingBananasTest {
     }
 
     private int minEatingSpeed(List<Integer> piles, int h) {
-        int left = 1, right = 1;
-        for (int pile : piles)
-            right = Math.max(right, pile);
+        int left = 1;
+        int right = getRight(piles);
 
         while (left < right) {
             int hourSpent = 0;
@@ -36,6 +35,13 @@ class KokoEatingBananasTest {
                 left = middle + 1;
         }
 
+        return right;
+    }
+
+    private int getRight(List<Integer> piles) {
+        int right = 1;
+        for (int pile : piles)
+            right = Math.max(right, pile);
         return right;
     }
 }

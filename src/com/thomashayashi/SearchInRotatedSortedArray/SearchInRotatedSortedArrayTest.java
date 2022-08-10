@@ -13,18 +13,16 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SearchInRotatedSortedArrayTest {
     @Test
     void checkIndex(){
-        assertEquals(4, search(Arrays.asList(4,5,6,7,0,1,2)));
+        assertEquals(4, search(Arrays.asList(4,5,6,7,0,1,2), 0));
+        assertEquals(-1, search(Arrays.asList(4,5,6,7,0,1,2), 3));
     }
 
-    private int search(List<Integer> numbers) {
-        int target = 0;
-
+    private int search(List<Integer> numbers, int target) {
         int minIndex = minIndex(numbers);
         int leftSearch = binarySearch(numbers, 0, minIndex - 1, target);
         int rightSearch = binarySearch(numbers, minIndex, numbers.size() - 1, target);
-        if (leftSearch != -1) {
-            return leftSearch;
-        } else return rightSearch;
+
+        return (leftSearch != -1) ? leftSearch : rightSearch;
     }
 
     private int minIndex(List<Integer> numbers) {

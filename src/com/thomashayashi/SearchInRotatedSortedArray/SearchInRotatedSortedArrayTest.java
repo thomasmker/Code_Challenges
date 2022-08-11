@@ -15,6 +15,7 @@ class SearchInRotatedSortedArrayTest {
     void checkIndex(){
         assertEquals(4, search(Arrays.asList(4,5,6,7,0,1,2), 0));
         assertEquals(-1, search(Arrays.asList(4,5,6,7,0,1,2), 3));
+        assertEquals(-1, search(List.of(1), 0));
     }
 
     private int search(List<Integer> numbers, int target) {

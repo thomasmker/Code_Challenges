@@ -14,6 +14,7 @@ class FindMinimumInRotatedSortedArrayTest {
 
     @Test
     void checkMinimum(){
+        assertEquals(2, findMin(List.of(2)));
         assertEquals(1, findMin(Arrays.asList(3,4,5,1,2)));
         assertEquals(0, findMin(Arrays.asList(4,5,6,7,0,1,2)));
         assertEquals(11, findMin(Arrays.asList(11,13,15,17)));

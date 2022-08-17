@@ -13,10 +13,17 @@ class TimeMapTest {
     HashMap<String, List<Map.Entry<String, Integer>>> map;
 
     @Test
-    void checkTimeMap(){
+    void checkKnownTimeMap(){
         map = new HashMap<>();
         set("foo", "bar", 1);
         assertEquals("bar", get("foo", 1));
+    }
+
+    @Test
+    void checkUnknownTimeMap(){
+        map = new HashMap<>();
+        set("foo", "bar", 1);
+        assertEquals("", get("fo", 1));
     }
 
     public void set(String key, String value, int timestamp) {

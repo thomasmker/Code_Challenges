@@ -1,5 +1,6 @@
 package com.thomashayashi.TimeMap;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -10,16 +11,19 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class TimeMapTest {
     TimeMap map;
 
+    @BeforeEach
+    void init() {
+        map = new TimeMap();
+    }
+
     @Test
     void checkKnownTimeMap(){
-        map = new TimeMap();
         map.set("foo", "bar", 1);
         assertEquals("bar", map.get("foo", 1));
     }
 
     @Test
     void checkUnknownTimeMap(){
-        map = new TimeMap();
         map.set("foo", "bar", 1);
         assertEquals("", map.get("fo", 1));
     }

@@ -27,5 +27,11 @@ class TimeMapTest {
         map.set("foo", "bar", 1);
         assertEquals("", map.get("fo", 1));
     }
+
+    @Test
+    void checkUnknownTimeStamp(){
+        map.set("foo", "bar", 1);
+        assertEquals("", map.get("fo", 2));
+    }
 }
 

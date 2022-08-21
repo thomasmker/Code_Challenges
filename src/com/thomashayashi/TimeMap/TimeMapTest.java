@@ -19,7 +19,9 @@ class TimeMapTest {
     @Test
     void checkKnownTimeMap(){
         map.set("foo", "bar", 1);
+        map.set("foo", "bar2", 2);
         assertEquals("bar", map.get("foo", 1));
+        assertEquals("bar2", map.get("foo", 2));
     }
 
     @Test

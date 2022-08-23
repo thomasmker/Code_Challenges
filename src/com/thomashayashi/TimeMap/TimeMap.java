@@ -11,8 +11,7 @@ class TimeMap {
 
     public void set(String key, String value, int timestamp) {
         if (!map.containsKey(key)) map.put(key, new ArrayList<>());
-        map.get(key).add(new AbstractMap.SimpleEntry<>(value, timestamp) {
-        });
+        map.get(key).add(new AbstractMap.SimpleEntry<>(value, timestamp) {});
     }
 
     public String get(String key, int timestamp) {
@@ -26,12 +25,12 @@ class TimeMap {
         int end = list.size() - 1;
         while (start < end) {
             int mid = start + (end - start + 1) / 2;
-            if (list.get(mid).getValue() <= timestamp) start = mid;
-            else end =
-                    mid - 1;
+            if (list.get(mid).getValue() <= timestamp)
+                start = mid;
+            else
+                end = mid - 1;
         }
-        return list.get(start).getValue() <= timestamp
-                ? list.get(start).getKey()
-                : "";
+        Map.Entry<String, Integer> entry = list.get(start);
+        return  entry.getValue() <= timestamp ? entry.getKey() : "";
     }
 }

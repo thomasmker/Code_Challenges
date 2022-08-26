@@ -26,6 +26,16 @@ class ReverseLinkedListTest {
         checkReversedListResult(a, "b|a");
     }
 
+    @Test
+    void checkMultiNodeList(){
+        ListNode a = new ListNode("a");
+        ListNode b = new ListNode("b");
+        ListNode c = new ListNode("c");
+        a.next = b;
+        b.next = c;
+        checkReversedListResult(a, "c|b|a");
+    }
+
     private void checkReversedListResult(ListNode originalList, String expectedResult) {
         ListNode reversedList = ListNode.reverseList(originalList);
         assertEquals(expectedResult, ListNode.printList(reversedList));

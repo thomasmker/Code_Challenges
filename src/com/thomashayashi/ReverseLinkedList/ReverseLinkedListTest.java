@@ -2,10 +2,6 @@ package com.thomashayashi.ReverseLinkedList;
 
 import org.junit.jupiter.api.Test;
 
-
-import java.util.ArrayList;
-import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /*
@@ -39,41 +35,5 @@ class ReverseLinkedListTest {
     private void checkReversedListResult(ListNode originalList, String expectedResult) {
         ListNode reversedList = ListNode.reverseList(originalList);
         assertEquals(expectedResult, ListNode.printList(reversedList));
-    }
-}
-
-class ListNode {
-    public ListNode next;
-    private final String value;
-
-    public ListNode(String value) {
-        this.value = value;
-    }
-
-    public String getValue() {
-        return this.value;
-    }
-
-    public static ListNode reverseList(ListNode head) {
-        ListNode p;
-        ListNode q = null;
-        ListNode r = head;
-        while (r != null) {
-            p = q;
-            q = r;
-            r = r.next;
-            q.next = p;
-        }
-        return q;
-    }
-
-    public static String printList(ListNode head) {
-        List<String> list = new ArrayList<>();
-        while(head != null) {
-            list.add(head.getValue());
-            head = head.next;
-        }
-
-        return String.join("|", list);
     }
 }

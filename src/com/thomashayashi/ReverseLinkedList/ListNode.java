@@ -28,12 +28,13 @@ public class ListNode {
         return q;
     }
 
-    public static String printList(ListNode head) {
+    public String print() {
         List<String> list = new ArrayList<>();
-        while(head != null) {
-            list.add(head.getValue());
-            head = head.next;
-        }
+        ListNode node = this;
+        do {
+            list.add(node.getValue());
+            node = node.next;
+        } while(node != null);
 
         return String.join("|", list);
     }

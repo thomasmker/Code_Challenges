@@ -28,7 +28,7 @@ public class ListNode {
         return q;
     }
 
-    public String print() {
+    public String print(String delimiter) {
         List<String> list = new ArrayList<>();
         ListNode node = this;
         do {
@@ -36,6 +36,6 @@ public class ListNode {
             node = node.next;
         } while(node != null);
 
-        return String.join("|", list);
+        return String.join(delimiter, list);
     }
 }

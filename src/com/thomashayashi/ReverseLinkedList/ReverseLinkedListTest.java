@@ -13,8 +13,9 @@ class ReverseLinkedListTest {
 
     @BeforeEach
     void init() {
-        this.head  = new ListNode("a");
+        head  = new ListNode("a");
     }
+
     @Test
     void checkSingleNodeList(){
         checkReversedListResult("a");
@@ -22,7 +23,7 @@ class ReverseLinkedListTest {
 
     @Test
     void checkTwoNodeList(){
-        this.head.next = new ListNode("b");
+        head.next = new ListNode("b");
         checkReversedListResult("b|a");
     }
 
@@ -30,13 +31,13 @@ class ReverseLinkedListTest {
     void checkMultiNodeList(){
         ListNode b = new ListNode("b");
         ListNode c = new ListNode("c");
-        this.head.next = b;
+        head.next = b;
         b.next = c;
         checkReversedListResult("c|b|a");
     }
 
     private void checkReversedListResult(String expectedResult) {
-        ListNode reversedList = ListNode.reverseList(this.head);
-        assertEquals(expectedResult, reversedList.print());
+        ListNode reversedList = ListNode.reverseList(head);
+        assertEquals(expectedResult, reversedList.print("|"));
     }
 }

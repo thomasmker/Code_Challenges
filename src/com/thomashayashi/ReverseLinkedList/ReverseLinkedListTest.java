@@ -17,11 +17,6 @@ class ReverseLinkedListTest {
     }
 
     @Test
-    void checkSingleNodeList(){
-        checkReversedListResult("a");
-    }
-
-    @Test
     void checkTwoNodeList(){
         head.next = new ListNode("b");
         checkReversedListResult("b|a");

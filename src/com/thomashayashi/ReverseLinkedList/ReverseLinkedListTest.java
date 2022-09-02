@@ -13,22 +13,27 @@ class ReverseLinkedListTest {
 
     @BeforeEach
     void init() {
-        head  = new ListNode("a");
+        head  = new ListNode("head");
+    }
+    
+    @Test
+    void checkSingleNodeList(){
+        checkReversedListResult("head");
     }
 
     @Test
     void checkTwoNodeList(){
-        head.next = new ListNode("b");
-        checkReversedListResult("b|a");
+        head.next = new ListNode("a");
+        checkReversedListResult("a|head");
     }
 
     @Test
     void checkMultiNodeList(){
+        ListNode a = new ListNode("a");
         ListNode b = new ListNode("b");
-        ListNode c = new ListNode("c");
-        head.next = b;
-        b.next = c;
-        checkReversedListResult("c|b|a");
+        head.next = a;
+        a.next = b;
+        checkReversedListResult("b|a|head");
     }
 
     private void checkReversedListResult(String expectedResult) {

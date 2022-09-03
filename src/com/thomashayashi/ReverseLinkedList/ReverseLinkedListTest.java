@@ -18,13 +18,13 @@ class ReverseLinkedListTest {
     
     @Test
     void checkSingleNodeList(){
-        checkReversedListResult("head");
+        checkReversedListResult();
     }
 
     @Test
     void checkTwoNodeList(){
         head.next = new ListNode("a");
-        checkReversedListResult("a|head");
+        checkReversedListResult("a");
     }
 
     @Test
@@ -33,11 +33,15 @@ class ReverseLinkedListTest {
         ListNode b = new ListNode("b");
         head.next = a;
         a.next = b;
-        checkReversedListResult("b|a|head");
+        checkReversedListResult("b|a");
     }
 
-    private void checkReversedListResult(String expectedResult) {
+    private void checkReversedListResult(String expectedResult = "") {
         ListNode reversedList = ListNode.reverseList(head);
-        assertEquals(expectedResult, reversedList.print("|"));
+        assertEquals(formatExpectedResult(expectedResult), reversedList.print("|"));
+    }
+    
+    private String formatExpectedResult(String expectedResult) {
+        return (expectedResult == "") ? "head" : expectedResult + "|head";
     }
 }

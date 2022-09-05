@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  */
 class ReverseLinkedListTest {
     private ListNode head;
-    private final String headDescription = "head";
+    private final String headDescription = "HEAD";
     
     @BeforeEach
     void init() {

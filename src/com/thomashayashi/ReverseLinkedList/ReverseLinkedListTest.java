@@ -24,17 +24,17 @@ class ReverseLinkedListTest {
 
     @Test
     void checkTwoNodeList(){
-        head.next = new ListNode("a");
-        checkReversedListResult("a");
+        head.next = new ListNode("A");
+        checkReversedListResult("A");
     }
 
     @Test
     void checkMultiNodeList(){
-        ListNode a = new ListNode("a");
-        ListNode b = new ListNode("b");
+        ListNode a = new ListNode("A");
+        ListNode b = new ListNode("B");
         head.next = a;
         a.next = b;
-        checkReversedListResult("b|a");
+        checkReversedListResult("B|A");
     }
 
     private void checkReversedListResult(String expectedResult = "") {

@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class ReverseLinkedListTest {
     private ListNode head;
     private final String headDescription = "HEAD";
-    
+    private final String SEPARATOR = "|";
     @BeforeEach
     void init() {
         head  = new ListNode(headDescription);
@@ -34,15 +34,15 @@ class ReverseLinkedListTest {
         ListNode b = new ListNode("B");
         head.next = a;
         a.next = b;
-        checkReversedListResult("B|A");
+        checkReversedListResult("B" + SEPARATOR + "A");
     }
 
     private void checkReversedListResult(String expectedResult = "") {
         ListNode reversedList = ListNode.reverseList(head);
-        assertEquals(formatExpectedResult(expectedResult), reversedList.print("|"));
+        assertEquals(formatExpectedResult(expectedResult), reversedList.print(SEPARATOR));
     }
     
     private String formatExpectedResult(String expectedResult) {
-        return (expectedResult == "") ? headDescription : expectedResult + "|" + headDescription;
+        return (expectedResult == "") ? headDescription : expectedResult + SEPARATOR + headDescription;
     }
 }

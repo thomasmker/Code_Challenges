@@ -10,11 +10,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  */
 class ReverseLinkedListTest {
     private ListNode head;
-    private final String headDescription = "HEAD";
+    private final String HEAD_NODE = "HEAD";
     private final String SEPARATOR = "|";
     @BeforeEach
     void init() {
-        head  = new ListNode(headDescription);
+        head  = new ListNode(HEAD_NODE);
     }
     
     @Test
@@ -43,6 +43,6 @@ class ReverseLinkedListTest {
     }
     
     private String formatExpectedResult(String expectedResult) {
-        return (expectedResult == "") ? headDescription : expectedResult + SEPARATOR + headDescription;
+        return (expectedResult == "") ? HEAD_NODE : expectedResult + SEPARATOR + HEAD_NODE;
     }
 }

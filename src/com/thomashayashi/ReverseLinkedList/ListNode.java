@@ -16,14 +16,14 @@ public class ListNode {
     }
 
     public static ListNode reverseList(ListNode head) {
-        ListNode p;
+        ListNode previous;
         ListNode q = null;
         ListNode current = head;
         while (current != null) {
-            p = q;
+            previous = q;
             q = current;
             current = current.next;
-            q.next = p;
+            q.next = previous;
         }
         return q;
     }

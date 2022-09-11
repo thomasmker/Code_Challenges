@@ -17,15 +17,15 @@ public class ListNode {
 
     public static ListNode reverseList(ListNode head) {
         ListNode previous;
-        ListNode q = null;
+        ListNode temp = null;
         ListNode current = head;
         while (current != null) {
-            previous = q;
-            q = current;
+            previous = temp;
+            temp = current;
             current = current.next;
-            q.next = previous;
+            temp.next = previous;
         }
-        return q;
+        return temp;
     }
 
     public String print(String delimiter) {

@@ -19,7 +19,7 @@ class ReverseLinkedListTest {
     
     @Test
     void checkSingleNodeList(){
-        checkReversedListResult();
+        checkReversedListResult("");
     }
 
     @Test
@@ -37,12 +37,12 @@ class ReverseLinkedListTest {
         checkReversedListResult("B" + SEPARATOR + "A");
     }
 
-    private void checkReversedListResult(String expectedResult = "") {
+    private void checkReversedListResult(String expectedResult) {
         ListNode reversedList = ListNode.reverseList(head);
         assertEquals(formatExpectedResult(expectedResult), reversedList.print(SEPARATOR));
     }
     
     private String formatExpectedResult(String expectedResult) {
-        return (expectedResult == "") ? HEAD_NODE : expectedResult + SEPARATOR + HEAD_NODE;
+        return (expectedResult.equals("")) ? HEAD_NODE : expectedResult + SEPARATOR + HEAD_NODE;
     }
 }

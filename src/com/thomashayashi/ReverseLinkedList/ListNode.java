@@ -16,16 +16,16 @@ public class ListNode {
     }
 
     public static ListNode reverseList(ListNode head) {
-        ListNode previous;
-        ListNode temp = null;
+        ListNode temp;
+        ListNode previous = null;
         ListNode current = head;
         while (current != null) {
-            previous = temp;
-            temp = current;
+            temp = previous;
+            previous = current;
             current = current.next;
-            temp.next = previous;
+            previous.next = temp;
         }
-        return temp;
+        return previous;
     }
 
     public String print(String delimiter) {

@@ -15,10 +15,10 @@ public class ListNode {
         return this.value;
     }
 
-    public static ListNode reverseList(ListNode head) {
+    public ListNode reverseList() {
         ListNode temp;
         ListNode previous = null;
-        ListNode current = head;
+        ListNode current = this;
         while (current != null) {
             temp = previous;
             previous = current;

@@ -38,7 +38,7 @@ class ReverseLinkedListTest {
     }
 
     private void checkReversedListResult(String expectedResult) {
-        ListNode reversedList = ListNode.reverseList(head);
+        ListNode reversedList = head.reverseList();
         assertEquals(formatExpectedResult(expectedResult), reversedList.print(SEPARATOR));
     }
     

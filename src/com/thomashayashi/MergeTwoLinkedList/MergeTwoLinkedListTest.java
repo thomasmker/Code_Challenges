@@ -2,6 +2,7 @@ package com.thomashayashi.MergeTwoLinkedList;
 
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
 /*
@@ -12,6 +13,13 @@ public class MergeTwoLinkedListTest {
     @Test
     void checkNullMerges(){
         assertNull(mergeTwoLists(null, null));
+    }
+
+    @Test
+    void checkSingleNodeMerges() {
+        ListNode list1 = new ListNode(1);
+        ListNode list2 = new ListNode(2);
+        assertEquals("1|2", mergeTwoLists(list1, list2).print("|"));
     }
 
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {

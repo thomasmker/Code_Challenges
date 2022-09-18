@@ -10,18 +10,16 @@ public class ListNode {
     public ListNode() {
 
     }
+    
     public ListNode(int value) {
         this.value = value;
-    }
-    public String getValue() {
-        return String.valueOf(this.value);
     }
 
     public String print(String delimiter) {
         List<String> list = new ArrayList<>();
         ListNode node = this;
         do {
-            list.add(node.getValue());
+            list.add(String.valueOf(node.value));
             node = node.next;
         } while(node != null);
 

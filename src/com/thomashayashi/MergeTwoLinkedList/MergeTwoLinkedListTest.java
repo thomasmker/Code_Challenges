@@ -16,10 +16,17 @@ public class MergeTwoLinkedListTest {
     }
 
     @Test
-    void checkSingleNodeMerges() {
+    void checkSingleNodeMergesAsc() {
         ListNode list1 = new ListNode(1);
         ListNode list2 = new ListNode(2);
         assertEquals("1|2", mergeTwoLists(list1, list2).print("|"));
+    }
+
+    @Test
+    void checkSingleNodeMergesDesc() {
+        ListNode list1 = new ListNode(1);
+        ListNode list2 = new ListNode(2);
+        assertEquals("1|2", mergeTwoLists(list2, list1).print("|"));
     }
 
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {

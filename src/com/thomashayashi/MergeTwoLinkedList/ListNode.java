@@ -10,10 +10,6 @@ public class ListNode {
     public ListNode() {
 
     }
-    
-    public ListNode(int value) {
-        this.value = value;
-    }
 
     public String print(String delimiter) {
         List<String> list = new ArrayList<>();

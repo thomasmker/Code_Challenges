@@ -1,5 +1,6 @@
 package com.thomashayashi.MergeTwoLinkedList;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -10,6 +11,14 @@ import static org.junit.jupiter.api.Assertions.assertNull;
  */
 public class MergeTwoLinkedListTest {
 
+    private ListNode List1;
+    private ListNode List2;
+
+    @BeforeEach
+    void init() {
+        this.List1 = new ListNode();
+        this.List2 = new ListNode();
+    }
     @Test
     void checkNullMerges(){
         assertNull(mergeTwoLists(null, null));
@@ -17,16 +26,20 @@ public class MergeTwoLinkedListTest {
 
     @Test
     void checkSingleNodeMergesAsc() {
-        ListNode list1 = new ListNode(1);
-        ListNode list2 = new ListNode(2);
-        assertEquals("1|2", mergeTwoLists(list1, list2).print("|"));
+        this.List1.value = 1;
+        this.List2.value = 2;
+        assertExpectedResult("1|2");
     }
 
     @Test
     void checkSingleNodeMergesDesc() {
-        ListNode list1 = new ListNode(1);
-        ListNode list2 = new ListNode(2);
-        assertEquals("1|2", mergeTwoLists(list2, list1).print("|"));
+        this.List1.value = 4;
+        this.List2.value = 3;
+        assertExpectedResult("3|4");
+    }
+
+    void assertExpectedResult(String expectedResult) {
+        assertEquals(expectedResult, mergeTwoLists(this.List1, this.List2).print("|"));
     }
 
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {

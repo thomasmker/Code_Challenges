@@ -20,7 +20,7 @@ public class MergeTwoLinkedListTest {
         this.List2 = new ListNode();
     }
     @Test
-    void checkNullMerges(){
+    void checkNullMerges() {
         assertNull(mergeTwoLists(null, null));
     }
 

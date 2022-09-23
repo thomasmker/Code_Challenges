@@ -33,6 +33,13 @@ public class MergeTwoLinkedListTest {
         assertExpectedResult("3|4");
     }
 
+    @Test
+    void checkSingleNodeMergesSameValue() {
+        this.List1.value = 5;
+        this.List2.value = 5;
+        assertExpectedResult("5|5");
+    }
+
     void assertExpectedResult(String expectedResult) {
         assertEquals(expectedResult, this.List1.mergeTwoLists(this.List2).print("|"));
     }

@@ -40,6 +40,19 @@ public class MergeTwoLinkedListTest {
         assertExpectedResult("5|5");
     }
 
+    @Test
+    void checkMultipleNodeMerge() {
+        this.List1.value = 1;
+        this.List1.next = new ListNode();
+        this.List1.next.value = 3;
+
+        this.List2.value = 2;
+        this.List2.next = new ListNode();
+        this.List2.next.value = 4;
+
+        assertExpectedResult("1|2|3|4");
+    }
+
     void assertExpectedResult(String expectedResult) {
         assertEquals(expectedResult, this.List1.mergeTwoLists(this.List2).print("|"));
     }

@@ -11,6 +11,10 @@ public class ListNode {
 
     }
 
+    public ListNode(int value) {
+        this.value = value;
+    }
+
     public ListNode mergeTwoLists(ListNode list2) {
         final ListNode root = new ListNode();
         ListNode prev = root;

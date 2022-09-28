@@ -48,12 +48,10 @@ public class MergeTwoLinkedListTest {
     @Test
     void checkMultipleNodeMergeInterval() {
         this.List1.value = 1;
-        this.List1.next = new ListNode();
-        this.List1.next.value = 3;
+        this.List1.next = new ListNode(3);
 
         this.List2.value = 2;
-        this.List2.next = new ListNode();
-        this.List2.next.value = 4;
+        this.List2.next = new ListNode(4);
 
         assertExpectedResult(Arrays.asList("1","2","3","4"));
     }
@@ -61,12 +59,10 @@ public class MergeTwoLinkedListTest {
     @Test
     void checkMultipleNodeMergeSequentialHead() {
         this.List1.value = 1;
-        this.List1.next = new ListNode();
-        this.List1.next.value = 2;
+        this.List1.next = new ListNode(2);
 
         this.List2.value = 3;
-        this.List2.next = new ListNode();
-        this.List2.next.value = 4;
+        this.List2.next = new ListNode(4);
 
         assertExpectedResult(Arrays.asList("1","2","3","4"));
     }
@@ -74,12 +70,10 @@ public class MergeTwoLinkedListTest {
     @Test
     void checkMultipleNodeMergeSequentialTail() {
         this.List1.value = 3;
-        this.List1.next = new ListNode();
-        this.List1.next.value = 4;
+        this.List1.next = new ListNode(4);
 
         this.List2.value = 1;
-        this.List2.next = new ListNode();
-        this.List2.next.value = 2;
+        this.List2.next = new ListNode(2);
 
         assertExpectedResult(Arrays.asList("1","2","3","4"));
     }

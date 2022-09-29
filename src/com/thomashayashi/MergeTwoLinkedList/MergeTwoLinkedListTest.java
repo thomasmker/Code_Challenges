@@ -26,8 +26,8 @@ public class MergeTwoLinkedListTest {
 
     @Test
     void checkSingleNodeMergesAsc() {
-        this.List1.value = 1;
-        this.List2.value = 2;
+        this.List1 = new ListNode(1);
+        this.List2 = new ListNode(2);
         assertExpectedResult(Arrays.asList("1","2"));
     }
 

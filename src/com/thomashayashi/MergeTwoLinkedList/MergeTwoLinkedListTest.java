@@ -33,8 +33,8 @@ public class MergeTwoLinkedListTest {
 
     @Test
     void checkSingleNodeMergesDesc() {
-        this.List1.value = 4;
-        this.List2.value = 3;
+        this.List1 = new ListNode(4);
+        this.List2 = new ListNode(3);
         assertExpectedResult(Arrays.asList("3","4"));
     }
 

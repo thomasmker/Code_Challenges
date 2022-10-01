@@ -40,8 +40,8 @@ public class MergeTwoLinkedListTest {
 
     @Test
     void checkSingleNodeMergesSameValue() {
-        this.List1.value = 5;
-        this.List2.value = 5;
+        this.List1 = new ListNode(5);
+        this.List2 = new ListNode(5);
         assertExpectedResult(Arrays.asList("5","5"));
     }
 

@@ -20,8 +20,8 @@ public class MergeTwoLinkedListTest {
 
     @BeforeEach
     void init() {
-        this.List1 = new ListNode();
-        this.List2 = new ListNode();
+        this.List1 = null;
+        this.List2 = null;
     }
 
     @Test

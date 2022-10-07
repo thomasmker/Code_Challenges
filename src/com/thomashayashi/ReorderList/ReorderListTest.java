@@ -18,6 +18,14 @@ public class ReorderListTest {
         assertEquals("1", this.List.print("|"));
     }
 
+    @Test
+    void checkAlreadyOrdered() {
+        this.List = new ListNode(1);
+        this.List.next = new ListNode(2);
+        reorderList();
+        assertEquals("1|2", this.List.print("|"));
+    }
+
     public void reorderList() {
         ListNode head = this.List;
         ListNode slow = head;

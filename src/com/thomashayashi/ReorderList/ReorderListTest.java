@@ -14,7 +14,7 @@ public class ReorderListTest {
     @Test
     void checkSingleNode() {
         this.List = new ListNode(1);
-        reorderList();
+        reorderList(this.List);
         assertEquals("1", this.List.print("|"));
     }
 
@@ -22,12 +22,12 @@ public class ReorderListTest {
     void checkAlreadyOrdered() {
         this.List = new ListNode(1);
         this.List.next = new ListNode(2);
-        reorderList();
+        reorderList(this.List);
         assertEquals("1|2", this.List.print("|"));
     }
 
-    public void reorderList() {
-        ListNode head = this.List;
+
+    public void reorderList(ListNode head) {
         ListNode slow = head;
         ListNode fast = head.next;
         while (fast != null && fast.next != null) {

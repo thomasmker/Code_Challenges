@@ -19,11 +19,20 @@ public class ReorderListTest {
     }
 
     @Test
-    void checkAlreadyOrdered() {
+    void checkTwoNodes() {
         this.List = new ListNode(1);
         this.List.next = new ListNode(2);
         reorderList(this.List);
         assertEquals("1|2", this.List.print("|"));
+    }
+
+    @Test
+    void checkThreeNodes() {
+        this.List = new ListNode(1);
+        this.List.next = new ListNode(2);
+        this.List.next.next = new ListNode(3);
+        reorderList(this.List);
+        assertEquals("1|3|2", this.List.print("|"));
     }
 
 

@@ -14,7 +14,6 @@ public class ReorderListTest {
     @Test
     void checkSingleNode() {
         this.List = new ListNode(1);
-        reorderList(this.List);
         assertResult("1");
     }
 
@@ -22,7 +21,6 @@ public class ReorderListTest {
     void checkTwoNodes() {
         this.List = new ListNode(1);
         this.List.next = new ListNode(2);
-        reorderList(this.List);
         assertResult("1|2");
     }
 
@@ -31,11 +29,11 @@ public class ReorderListTest {
         this.List = new ListNode(1);
         this.List.next = new ListNode(2);
         this.List.next.next = new ListNode(3);
-        reorderList(this.List);
         assertResult("1|3|2");
     }
 
     void assertResult(String expectedResult) {
+        reorderList(this.List);
         assertEquals(expectedResult, this.List.print("|"));
     }
 

@@ -1,5 +1,6 @@
 package com.thomashayashi.ReorderList;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -11,22 +12,24 @@ public class ReorderListTest {
 
     private ListNode List;
 
+    @BeforeEach
+    void init() {
+        this.List = new ListNode(1);
+    }
+
     @Test
     void checkSingleNode() {
-        this.List = new ListNode(1);
         assertResult("1");
     }
 
     @Test
     void checkTwoNodes() {
-        this.List = new ListNode(1);
         this.List.next = new ListNode(2);
         assertResult("1|2");
     }
 
     @Test
     void checkThreeNodes() {
-        this.List = new ListNode(1);
         this.List.next = new ListNode(2);
         this.List.next.next = new ListNode(3);
         assertResult("1|3|2");

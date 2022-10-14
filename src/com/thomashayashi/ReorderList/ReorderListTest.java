@@ -35,6 +35,14 @@ public class ReorderListTest {
         assertResult("1|3|2");
     }
 
+    @Test
+    void checkFourNodes() {
+        this.List.next = new ListNode(2);
+        this.List.next.next = new ListNode(3);
+        this.List.next.next.next = new ListNode(4);
+        assertResult("1|4|2|3");
+    }
+
     void assertResult(String expectedResult) {
         this.List.reorderList();
         assertEquals(expectedResult, this.List.print("|"));

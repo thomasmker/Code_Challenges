@@ -10,11 +10,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  */
 public class ReorderListTest {
 
-    private ListNode List;
+    private ListNode Head;
 
     @BeforeEach
     void init() {
-        this.List = new ListNode(1);
+        this.Head = new ListNode(1);
     }
 
     @Test
@@ -24,28 +24,28 @@ public class ReorderListTest {
 
     @Test
     void checkTwoNodes() {
-        this.List.next = new ListNode(2);
+        this.Head.next = new ListNode(2);
         assertResult("1|2");
     }
 
     @Test
     void checkThreeNodes() {
-        this.List.next = new ListNode(2);
-        this.List.next.next = new ListNode(3);
+        this.Head.next = new ListNode(2);
+        this.Head.next.next = new ListNode(3);
         assertResult("1|3|2");
     }
 
     @Test
     void checkFourNodes() {
-        this.List.next = new ListNode(2);
-        this.List.next.next = new ListNode(3);
-        this.List.next.next.next = new ListNode(4);
+        this.Head.next = new ListNode(2);
+        this.Head.next.next = new ListNode(3);
+        this.Head.next.next.next = new ListNode(4);
         assertResult("1|4|2|3");
     }
 
     void assertResult(String expectedResult) {
-        this.List.reorderList();
-        assertEquals(expectedResult, this.List.print("|"));
+        this.Head.reorderList();
+        assertEquals(expectedResult, this.Head.print("|"));
     }
 }
 

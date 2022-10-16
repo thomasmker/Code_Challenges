@@ -14,7 +14,7 @@ public class ReorderListTest {
 
     @BeforeEach
     void init() {
-        this.Head = new ListNode(1);
+        Head = new ListNode(1);
     }
 
     @Test
@@ -24,28 +24,28 @@ public class ReorderListTest {
 
     @Test
     void checkTwoNodes() {
-        this.Head.next = new ListNode(2);
+        Head.next = new ListNode(2);
         assertResult("1|2");
     }
 
     @Test
     void checkThreeNodes() {
-        this.Head.next = new ListNode(2);
-        this.Head.next.next = new ListNode(3);
+        Head.next = new ListNode(2);
+        Head.next.next = new ListNode(3);
         assertResult("1|3|2");
     }
 
     @Test
     void checkFourNodes() {
-        this.Head.next = new ListNode(2);
-        this.Head.next.next = new ListNode(3);
-        this.Head.next.next.next = new ListNode(4);
+        Head.next = new ListNode(2);
+        Head.next.next = new ListNode(3);
+        Head.next.next.next = new ListNode(4);
         assertResult("1|4|2|3");
     }
 
     void assertResult(String expectedResult) {
-        this.Head.reorderList();
-        assertEquals(expectedResult, this.Head.print("|"));
+        Head.reorderList();
+        assertEquals(expectedResult, Head.print("|"));
     }
 }
 

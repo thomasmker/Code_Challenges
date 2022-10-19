@@ -22,13 +22,13 @@ public class ReorderListTest {
 
     @Test
     void checkSingleNode() {
-        assertResult("1");
+        assertResult(List.of("1"));
     }
 
     @Test
     void checkTwoNodes() {
         Head.next = new ListNode(2);
-        assertResult("1|2");
+        assertResult(Arrays.asList("1","2"));
     }
 
     @Test
@@ -44,11 +44,6 @@ public class ReorderListTest {
         Head.next.next = new ListNode(3);
         Head.next.next.next = new ListNode(4);
         assertResult(Arrays.asList("1","4","2","3"));
-    }
-
-    void assertResult(String expectedResult) {
-        Head.reorderList();
-        assertEquals(expectedResult, Head.print("|"));
     }
 
     void assertResult(List<String> expectedResult) {

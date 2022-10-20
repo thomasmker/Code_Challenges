@@ -14,6 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class ReorderListTest {
 
     private ListNode Head;
+    private static final String SEPARATOR = "|";
 
     @BeforeEach
     void init() {
@@ -48,11 +49,11 @@ public class ReorderListTest {
 
     void assertResult(List<String> expectedResult) {
         Head.reorderList();
-        assertEquals(formatResult(expectedResult), Head.print("|"));
+        assertEquals(formatResult(expectedResult), Head.print(SEPARATOR));
     }
 
     String formatResult(List<String> expectedResult) {
-        return String.join("|", expectedResult);
+        return String.join(SEPARATOR, expectedResult);
     }
 }
 

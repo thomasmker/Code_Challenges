@@ -49,11 +49,17 @@ public class ReorderListTest {
 
     @Test
     void checkFiveNodes() {
-        Head.next = new ListNode(2);
-        Head.next.next = new ListNode(3);
-        Head.next.next.next = new ListNode(4);
-        Head.next.next.next.next = new ListNode(5);
+        linkNodes(Arrays.asList(2,3,4,5));
         assertResult(Arrays.asList("1","5","2","4","3"));
+    }
+
+
+    void linkNodes(List<Integer> nodes) {
+        ListNode current = Head;
+        for(Integer node : nodes) {
+            current.next = new ListNode(node);
+            current = current.next;
+        }
     }
 
     void assertResult(List<String> expectedResult) {

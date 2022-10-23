@@ -41,9 +41,7 @@ public class ReorderListTest {
 
     @Test
     void checkFourNodes() {
-        Head.next = new ListNode(2);
-        Head.next.next = new ListNode(3);
-        Head.next.next.next = new ListNode(4);
+        linkNodes(Arrays.asList(2,3,4));
         assertResult(Arrays.asList("1","4","2","3"));
     }
 

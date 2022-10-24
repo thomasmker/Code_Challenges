@@ -34,8 +34,7 @@ public class ReorderListTest {
 
     @Test
     void checkThreeNodes() {
-        Head.next = new ListNode(2);
-        Head.next.next = new ListNode(3);
+        linkNodes(Arrays.asList(2,3));
         assertResult(Arrays.asList("1","3","2"));
     }
 

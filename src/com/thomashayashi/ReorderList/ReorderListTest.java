@@ -28,7 +28,7 @@ public class ReorderListTest {
 
     @Test
     void checkTwoNodes() {
-        Head.next = new ListNode(2);
+        linkNodes(List.of(2));
         assertResult(Arrays.asList("1","2"));
     }
 

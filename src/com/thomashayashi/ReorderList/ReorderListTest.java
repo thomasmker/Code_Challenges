@@ -1,9 +1,9 @@
 package com.thomashayashi.ReorderList;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -16,13 +16,9 @@ public class ReorderListTest {
     private ListNode Head;
     private static final String SEPARATOR = "|";
 
-    @BeforeEach
-    void init() {
-        Head = new ListNode(1);
-    }
-
     @Test
     void checkSingleNode() {
+        linkNodes(Collections.emptyList());
         assertResult(List.of("1"));
     }
 
@@ -52,6 +48,7 @@ public class ReorderListTest {
 
 
     void linkNodes(List<Integer> nodes) {
+        Head = new ListNode(1);
         ListNode current = Head;
         for(Integer node : nodes) {
             current.next = new ListNode(node);

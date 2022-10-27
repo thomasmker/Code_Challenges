@@ -3,7 +3,6 @@ package com.thomashayashi.ReorderList;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -18,7 +17,7 @@ public class ReorderListTest {
 
     @Test
     void checkSingleNode() {
-        linkNodes(Collections.emptyList());
+        linkNodesFromHead(List.of(1));
         assertResult(List.of("1"));
     }
 
@@ -46,6 +45,15 @@ public class ReorderListTest {
         assertResult(Arrays.asList("1","5","2","4","3"));
     }
 
+    void linkNodesFromHead(List<Integer> nodes) {
+        Head = new ListNode(nodes.get(0));
+        ListNode current = Head;
+        for(int i = 1; i < nodes.size(); i++) {
+            Integer node = nodes.get(i);
+            current.next = new ListNode(node);
+            current = current.next;
+        }
+    }
 
     void linkNodes(List<Integer> nodes) {
         Head = new ListNode(1);

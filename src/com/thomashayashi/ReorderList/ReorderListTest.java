@@ -23,7 +23,7 @@ public class ReorderListTest {
 
     @Test
     void checkTwoNodes() {
-        linkNodes(List.of(2));
+        linkNodesFromHead(Arrays.asList(1,2));
         assertResult(Arrays.asList("1","2"));
     }
 

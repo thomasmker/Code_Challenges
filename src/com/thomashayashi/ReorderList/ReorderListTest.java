@@ -29,7 +29,7 @@ public class ReorderListTest {
 
     @Test
     void checkThreeNodes() {
-        linkNodes(Arrays.asList(2,3));
+        linkNodesFromHead(Arrays.asList(1,2,3));
         assertResult(Arrays.asList("1","3","2"));
     }
 

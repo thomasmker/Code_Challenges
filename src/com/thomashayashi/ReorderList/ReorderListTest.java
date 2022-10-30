@@ -35,7 +35,7 @@ public class ReorderListTest {
 
     @Test
     void checkFourNodes() {
-        linkNodes(Arrays.asList(2,3,4));
+        linkNodesFromHead(Arrays.asList(1,2,3,4));
         assertResult(Arrays.asList("1","4","2","3"));
     }
 

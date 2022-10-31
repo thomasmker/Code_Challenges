@@ -41,7 +41,7 @@ public class ReorderListTest {
 
     @Test
     void checkFiveNodes() {
-        linkNodes(Arrays.asList(2,3,4,5));
+        linkNodesFromHead(Arrays.asList(1,2,3,4,5));
         assertResult(Arrays.asList("1","5","2","4","3"));
     }
 
@@ -50,15 +50,6 @@ public class ReorderListTest {
         ListNode current = Head;
         for(int i = 1; i < nodes.size(); i++) {
             Integer node = nodes.get(i);
-            current.next = new ListNode(node);
-            current = current.next;
-        }
-    }
-
-    void linkNodes(List<Integer> nodes) {
-        Head = new ListNode(1);
-        ListNode current = Head;
-        for(Integer node : nodes) {
             current.next = new ListNode(node);
             current = current.next;
         }

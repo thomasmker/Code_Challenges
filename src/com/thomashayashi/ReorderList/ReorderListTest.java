@@ -49,8 +49,7 @@ public class ReorderListTest {
         Head = new ListNode(nodes.get(0));
         ListNode current = Head;
         for(int i = 1; i < nodes.size(); i++) {
-            Integer node = nodes.get(i);
-            current.next = new ListNode(node);
+            current.next = new ListNode(nodes.get(i));
             current = current.next;
         }
     }

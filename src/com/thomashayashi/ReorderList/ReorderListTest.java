@@ -46,12 +46,16 @@ public class ReorderListTest {
     }
 
     void linkNodesFromHead(List<Integer> nodes) {
-        Head = new ListNode(nodes.get(0));
+        initHead(nodes.get(0));
         ListNode current = Head;
         for(int i = 1; i < nodes.size(); i++) {
             current.next = new ListNode(nodes.get(i));
             current = current.next;
         }
+    }
+
+    void initHead(Integer value) {
+        Head = new ListNode(value);
     }
 
     void assertResult(List<String> expectedResult) {

@@ -13,9 +13,15 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class LargestElementStreamTest {
 
     @Test
-    void checkAddingLargeElement() {
+    void checkAddingLargerElement() {
         KthLargest heap = new KthLargest(1, List.of(0));
         assertEquals(1, heap.add(1));
+    }
+
+    @Test
+    void checkAddingSmallerElement() {
+        KthLargest heap = new KthLargest(1, List.of(1));
+        assertEquals(1, heap.add(0));
     }
 }
 
